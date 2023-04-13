@@ -1,0 +1,19 @@
+version: "3.8"
+services:   
+    # Jupyter notebook
+    jupyter:
+      build:
+        context: .
+        dockerfile: ./compose/jupyter/Dockerfile
+      container_name: jupyter
+      volumes:
+        - .:/app
+      ports:
+        - "8888:8888"
+    loader:
+      build:
+        context: .
+        dockerfile: ./compose/loader/Dockerfile
+      container_name: loader
+      volumes:
+        - .:/app
